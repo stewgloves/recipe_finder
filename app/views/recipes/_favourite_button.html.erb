@@ -1,0 +1,16 @@
+<% if authenticated? %>
+  <% if Current.user.favourite_recipes.include?(recipe) %>
+    <%= form_with url: favourite_path(recipe), method: :delete, remote: true do |f| %>
+      <%= f.submit "♥ Favorited", class: "favorite-button favorited", data: { recipe_id: recipe.id } %>
+    <% end %>
+  <% else %>
+    <%= form_with url: favourites_path, method: :post, remote: true do |f| %>
+      <%= f.hidden_field :recipe_id, value: recipe.id %>
+      <%= f.submit "❤", class: "favorite-button", data: { recipe_id: recipe.id } %>
+    <% end %>
+  <% end %>
+<% else %>
+  <button class="favorite-button" onclick="window.location.href='<%= new_session_path %>'">
+    ❤
+  </button>
+<% end %>

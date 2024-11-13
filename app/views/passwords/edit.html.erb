@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="text-center">Update your password</h1>
+        </div>
+        <div class="card-body">
+          <%= tag.div(flash[:alert], class: "alert alert-danger") if flash[:alert] %>
+
+          <%= form_with url: password_path(params[:token]), method: :put, class: "needs-validation", novalidate: true do |form| %>
+
+            <!-- New Password Field -->
+            <div class="form-group mb-3">
+              <%= form.label :password, "New Password", class: "form-label" %>
+              <%= form.password_field :password, class: "form-control", required: true, autocomplete: "new-password", placeholder: "Enter new password", maxlength: 72 %>
+              <div class="invalid-feedback">Please enter a new password.</div>
+            </div>
+
+            <!-- Password Confirmation Field -->
+            <div class="form-group mb-3">
+              <%= form.label :password_confirmation, "Confirm New Password", class: "form-label" %>
+              <%= form.password_field :password_confirmation, class: "form-control", required: true, autocomplete: "new-password", placeholder: "Repeat new password", maxlength: 72 %>
+              <div class="invalid-feedback">Passwords do not match.</div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid">
+              <%= form.submit "Save", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

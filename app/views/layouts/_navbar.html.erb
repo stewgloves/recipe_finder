@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-purple">
+  <div class="container d-flex align-items-center justify-content-between">
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      <%= image_tag 'food_finder_logo.png', class: 'navbar-logo', alt: 'Food Finder Logo' %>
+    <% end %>
+
+    <div class="top-right d-flex align-items-center">
+      <% if authenticated? %>
+        <%= button_to session_path, method: :delete, class: "btn btn-outline-light ms-2", aria: { label: "Sign out" } do %>
+          <i class="fas fa-sign-out-alt"></i> Sign Out
+        <% end %>
+      <% else %>
+        <%= link_to new_session_path, class: "btn btn-outline-light me-2", aria: { label: "Sign in" } do %>
+          <i class="fas fa-sign-in-alt"></i> Sign In
+        <% end %>
+        <%= link_to new_registration_path, class: "btn btn-outline-light", aria: { label: "Sign up" } do %>
+          <i class="fas fa-user-plus"></i> Sign Up
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</nav>

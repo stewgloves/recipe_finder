@@ -1,0 +1,61 @@
+.ingredients-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    overflow-y: auto;
+}
+
+.recipe-card:hover .ingredients-list {
+    opacity: 1;
+}
+
+.favorite-button {
+    color: gray;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.favorite-button.favorited {
+    color: red; /* Change color to indicate it's been favorited */
+}
+
+.favorite-button-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.recipe-card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.favorite-button {
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.favorite-button.favorited {
+    color: #d9534f;
+}

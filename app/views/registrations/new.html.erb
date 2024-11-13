@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="text-center">Sign Up</h3>
+        </div>
+        <div class="card-body">
+          <%= form_with model: @user,
+                        url: registrations_path,
+                        method: :post,
+                        class: "needs-validation", novalidate: true do |form| %>
+
+            <!-- Email Address -->
+            <div class="form-group mb-3">
+              <%= form.label :email_address, "Email Address", class: "form-label" %>
+              <%= form.email_field :email_address, class: "form-control", required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %>
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+
+            <!-- Password Fields -->
+            <div class="form-group mb-3">
+              <%= form.label :password, "Password", class: "form-label" %>
+              <%= form.password_field :password, class: "form-control", required: true, autocomplete: "new-password", placeholder: "Enter your password", maxlength: 72 %>
+              <div class="invalid-feedback">Password must be at least 8 characters.</div>
+            </div>
+
+            <div class="form-group mb-3">
+              <%= form.label :password_confirmation, "Confirm Password", class: "form-label" %>
+              <%= form.password_field :password_confirmation, class: "form-control", required: true, autocomplete: "new-password", placeholder: "Repeat new password", maxlength: 72 %>
+              <div class="invalid-feedback">Passwords do not match.</div>
+            </div>
+
+            <div class="d-grid">
+              <%= form.submit "Sign up", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="card-footer text-center">
+          <%= link_to "Sign in?", new_session_path, class: "text-muted" %>
+          <%= link_to "Forgot password?", new_password_path, class: "text-muted" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
