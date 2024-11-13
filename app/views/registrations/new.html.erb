@@ -5,6 +5,7 @@
         <div class="card-header">
           <h3 class="text-center">Sign Up</h3>
         </div>
+        <%= render partial: 'layouts/flash_message', locals: { object: @user } %>
         <div class="card-body">
           <%= form_with model: @user,
                         url: registrations_path,
