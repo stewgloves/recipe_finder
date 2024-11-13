@@ -1,6 +1,7 @@
 ## Food Finder
 
 Food Finder is a web application that allows users to search for recipes based on available ingredients and save their favorite recipes.
+<img width="1429" alt="image" src="https://github.com/user-attachments/assets/13c1a894-3427-406e-975d-c29e88cc6311">
 
 ## Problem statement
 Create an application that helps users find the most relevant recipes that they can prepare with the ingredients that they have at home
