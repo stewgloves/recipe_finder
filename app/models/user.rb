@@ -5,4 +5,6 @@ class User < ApplicationRecord
   has_many :favourite_recipes, through: :user_recipes, source: :recipe
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+
+  validates :email_address, presence: true, uniqueness: true
 end

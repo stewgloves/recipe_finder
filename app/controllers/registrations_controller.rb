@@ -7,12 +7,13 @@ class RegistrationsController < ApplicationController
   end
 
   def create
-    user = User.new(registration_params)
+    @user = User.new(registration_params)
 
-    if user.save
-      start_new_session_for user
+    if @user.save
+      start_new_session_for @user
       redirect_to after_authentication_url, notice: "Time to find some recipes!"
     else
+      flash.now[:alert] = "Please correct the errors below."
       render :new, status: :unprocessable_entity
     end
   end
